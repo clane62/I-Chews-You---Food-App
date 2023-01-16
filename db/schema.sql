@@ -17,6 +17,7 @@ CREATE TABLE reviews(
 CREATE TABLE recipes(
     id SERIAL PRIMARY KEY
     ,name TEXT
+    ,image_url TEXT
     ,description TEXT
     ,recipe_id INT
 );
@@ -28,7 +29,10 @@ VALUES
 
 CREATE TABLE users(
     id SERIAL PRIMARY KEY
-    ,name TEXT
+    ,first_name TEXT
+    ,last_name TEXT
+    ,username TEXT
     ,email TEXT
     ,password_digest TEXT
 );
+
