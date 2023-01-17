@@ -7,6 +7,7 @@ const sessions = require('./middlewares/sessions')
 // controllers
 const usersController = require('./controllers/users_controller')
 const sessionsController = require('./controllers/sessions_controller')
+const recipesController = require('./controllers/recipes_controller')
 
 
 const app = express()
