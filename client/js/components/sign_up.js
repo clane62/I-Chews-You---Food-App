@@ -62,8 +62,8 @@ function signUp(event) {
     if (!checkPassword()) {
         // renderSignUpPasswordIssue()
         document.querySelector('.error-message').textContent = 'Passwords do not match'
-    } else if (!checkExistingUser()) {
-        document.querySelector('.error-message').textContent = 'A user with that email already exists'
+        // } else if (checkExistingUser(data)) {
+        //     document.querySelector('.error-message').textContent = 'A user with that email already exists'
     } else {
         fetch('/api/users', {
             method: 'POST',
@@ -74,7 +74,7 @@ function signUp(event) {
             .then(() => renderHome())
     }
 
-    
+
 }
 
 function checkPassword() {
@@ -88,3 +88,21 @@ function checkPassword() {
     }
 }
 
+// function checkExistingUser(data) {
+//     fetch('/api/users', {
+//         method: 'GET',
+//         headers: { 'Content-Type': 'application/json' },
+//         body: JSON.stringify(data)
+//     })
+//         .then(res => res.json())
+//         .then(user => {
+//             if (user) {
+//                 return true
+//             } else {
+//                 return false
+//             }
+//         })
+// }
+
+
+// cannot pass body into a get request, need to figure out how to pass email param through to server via get request
