@@ -1,7 +1,7 @@
 const state = {
-    // populate with other key value pairs
-    reviews: [],
-    loggedInUserName: null
+  // populate with other key value pairs
+  reviews: [],
+  loggedInUserName: null
 }
 
 // PLACEHOLDER CODE
@@ -16,3 +16,4 @@ const state = {
 // fetch('/api/sessions')
 //     .then(res => res.json())
 //     .then(userName => state.loggedInUserName = userName)
+
