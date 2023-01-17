@@ -4,11 +4,9 @@ function renderSearch() {
     <input type="text">
     <button class="search-recipe">Search</button>
   </form>
-  <section class="recipes">
-  </section>
+  <span class="search-results"></span>
   `
-  //  won't launch if function is called on line 8 instead of line eg: ${displayRecipes()}
-
+  const searchResults = document.querySelector('.search-results')
   const searchButton = document.querySelector('.search-recipe')
 
   searchButton.addEventListener('click', event => {
@@ -20,13 +18,13 @@ function renderSearch() {
   })
 
   function findRecipe(searchInput) {
-    fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${searchInput}&apiKey=247841a848f5433ba355a9d1cb38b293`)
+    fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${searchInput}&${ENV['SPOONACULAR_API_KEY']}`)
       .then(response => response.json())
       .then(response => {
         const searchOutput = response.results
 
         console.log(searchOutput)
-        displayRecipes(searchOutput)
+        renderSearchList(searchOutput)
 
       })
   }
