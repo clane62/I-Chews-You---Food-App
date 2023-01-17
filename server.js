@@ -5,6 +5,8 @@ const logger = require('./middlewares/logger')
 const sessions = require('./middlewares/sessions')
 
 // controllers
+const usersController = require('./controllers/users_controller')
+const sessionsController = require('./controllers/sessions_controller')
 
 
 const app = express()
@@ -21,3 +23,5 @@ app.use(express.json())
 app.use(sessions)
 
 // middleware for controller routes
+app.use('/api/users', usersController)
+// app.use('/api/sessions', sessionsController)
