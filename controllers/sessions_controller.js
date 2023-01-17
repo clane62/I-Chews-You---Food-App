@@ -6,6 +6,7 @@ const bcrypt = require('bcrypt')
 const User = require('../models/user')
 
 // routes
+// checking if user is logged in
 router.get('/', (req, res) => {
     User
         .findById(req.session.userId)
@@ -16,4 +17,9 @@ router.get('/', (req, res) => {
                 res.json(null)
             }
         })
+})
+
+// user log in
+router.post('/', (req, res) => {
+
 })

@@ -24,4 +24,5 @@ app.use(sessions)
 
 // middleware for controller routes
 app.use('/api/users', usersController)
+app.use('/api/sessions', sessionsController)
 // app.use('/api/sessions', sessionsController)
