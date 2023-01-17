@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
         .findById(req.session.userId)
         .then(user => {
             if (user) {
-                res.json(user.email)
+                res.json(user.username)
             } else {
                 res.json(null)
             }
