@@ -32,4 +32,12 @@ function renderComments(recipeId) {
     // find comments in db by recipe id and store as variable
     var recipeComments = findRecipeDB(recipeId)
     
+//     fetch(`/api/treasures/${treasureId}`, {
+//         method: 'DELETE'
+//       })
+//         .then(() => {
+//           // removing just that one treasure from my state.treasures
+//           state.treasures = state.treasures.filter(t => t.id != treasureId)
+//           renderTreasureList()
+//         })
 }
