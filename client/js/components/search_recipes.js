@@ -30,10 +30,10 @@ function renderSearch() {
   }
 }
 
-// function displayRecipes(searchOutput) {
-//   return searchOutput.forEach(function (output) {
-//      `<section class="recipes">
-//       <h2>${output.title}</h2> 
-//       </section>`).join(" ")
-//     }
+function displayRecipes(searchOutput) {
+  return searchOutput.map(output => `
+   <section class="recipes">
+      <h2>${output.title}</h2> 
+   </section>`).join(" ")
+}
 
