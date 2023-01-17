@@ -24,16 +24,26 @@ function renderSearch() {
         const searchOutput = response.results
 
         console.log(searchOutput)
-        displayRecipes(searchOutput)
+        renderSearchList(searchOutput)
 
       })
   }
 }
 
-function displayRecipes(searchOutput) {
+function renderSearchList(searchOutput) {
+  document.querySelector('#page').innerHTML = `
+    <section class='search-rslt'>
+      ${renderSearchResults(searchOutput)}
+    </section>
+  `
+}
+
+function renderSearchResults(searchOutput) {
   return searchOutput.map(output => `
-   <section class="recipes">
-      <h2>${output.title}</h2> 
-   </section>`).join(" ")
+   <section onClick='renderSingleRecipe(event)' class="recipe" data-id='${output.id}'>
+      <h2>${output.title}</h2>
+      <img src='${output.image}' alt=''>
+   </section>
+  `).join(" ")
 }
 
