@@ -4,9 +4,11 @@ function renderSearch() {
     <input type="text">
     <button class="search-recipe">Search</button>
   </form>
-  <span class="search-results"></span>
+  <section class="recipes">
+  </section>
   `
-  const searchResults = document.querySelector('.search-results')
+  //  won't launch if function is called on line 8 instead of line eg: ${displayRecipes()}
+
   const searchButton = document.querySelector('.search-recipe')
 
   searchButton.addEventListener('click', event => {
@@ -24,7 +26,7 @@ function renderSearch() {
         const searchOutput = response.results
 
         console.log(searchOutput)
-        renderSearchList(searchOutput)
+        displayRecipes(searchOutput)
 
       })
   }
@@ -46,4 +48,3 @@ function renderSearchResults(searchOutput) {
    </section>
   `).join(" ")
 }
-
