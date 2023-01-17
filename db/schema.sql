@@ -36,3 +36,6 @@ CREATE TABLE users(
     ,password_digest TEXT
 );
 
+ALTER TABLE users
+ADD CONSTRAINT unique_users
+UNIQUE(username, email);
