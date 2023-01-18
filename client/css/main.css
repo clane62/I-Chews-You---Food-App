@@ -34,3 +34,8 @@ li {
 li:hover {
   color: rgb(249, 187, 54);
 }
+
+button {
+  background-color: white 80%;
+  color: black;
+}

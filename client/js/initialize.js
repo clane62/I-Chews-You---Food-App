@@ -29,6 +29,6 @@ fetch(`https://api.spoonacular.com/recipes/random?apiKey=99a56507b069468ea74c05c
       <h2>${food.title}</h2>
 
       <img src='${food.image}' alt=''>
-    </section>
-    `
-})
+
+`
+  })
