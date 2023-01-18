@@ -7,8 +7,9 @@ function renderSingleRecipe(event) {
     // store the results in an object
     var recipeObject = findRecipeById(recipeDataId)
 
-    fetch(`https://api.spoonacular.com/recipes/${recipeDataId}/information?apiKey=99a56507b069468ea74c05caf5aac57b`)
+    fetch(`https://api.spoonacular.com/recipes/${recipeDataId}/information?apiKey=16157713a2bb48259ac28d6dce7b2976`)
     .then(response => response.json())
+    .then(renderComments(recipeDataId))
     .then(searchResult => {
       renderRecipeDetail(searchResult)
     })
@@ -44,32 +45,39 @@ function renderRecipeDetail(recipeObject) {
             <h3>Comments:</h3>
             <div onClick='renderAddComment()' class='comment-btn'>
                 <p>Add Comment</p>
-                <div class='new-comment'></div
-            </div
-
-            <ol>
-                ${renderComments(recipeObject.recipeID)}
-            </ol
+                <div class='new-comment'></div>
+            </div>
+            
+            <div class='existing-comments'>
+                ${renderReviewList()}
+            </div>
         </section>
     `
-}
-
-function renderComments(recipeId) {
-    // find comments in db by recipe id and store as variable
-    // var recipeComments = findRecipeDB(recipeId)
-    
-//     fetch(`/api/treasures/${treasureId}`, {
-//         method: 'DELETE'
-//       })
-//         .then(() => {
-//           // removing just that one treasure from my state.treasures
-//           state.treasures = state.treasures.filter(t => t.id != treasureId)
-//           renderTreasureList()
-//         })
 }
 
 function renderExtendedIngredients(ingredients) {
     return ingredients.map(ingredient =>`
         <li>${ingredient.original}</li>
     `).join(' ')
+}
+
+function renderComments(recipeId) {
+    // find comments in db by recipe id and store as variable
+    // var recipeComments = findRecipeDB(recipeId)
+    
+     return fetch(`/api/comments/${recipeId}`)
+        .then(res => res.json())
+        .then(reviews => {
+            state.reviews = reviews
+        })
+}
+
+function renderReviewList() {
+    return state.reviews.map(review => `
+    <div class='review'>
+        <h4>${review.username}</h4>
+        <p>${review.rating}</p>
+        <p>${review.review}</p>
+    </div>
+    `).join('')
 }

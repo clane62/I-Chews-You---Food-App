@@ -39,3 +39,18 @@ CREATE TABLE users(
 ALTER TABLE users
 ADD CONSTRAINT unique_users
 UNIQUE(username, email);
+
+DROP TABLE reviews;
+
+CREATE TABLE reviews(
+    id SERIAL PRIMARY KEY
+    ,user_id INT
+    ,recipe_id INT
+    ,rating INT
+    ,review TEXT
+);
+
+INSERT INTO reviews(user_id, recipe_id, rating, review)
+VALUES
+    (1, 1096010, 4, 'Great')
+    ,(2, 1096010, 2, 'Bad');
