@@ -4,7 +4,7 @@ function renderAddComment() {
     // replace below line with relevant position comments box should go
     document.querySelector('#page').innerHTML = `
         <div class="comment-area">
-            <form>
+            <form onSubmit="addComment(event)">
                 <fieldset>
                     <label for="">Rating</label>
                     <input type="text" name="rating" value size="50" maxlength="50">
@@ -19,4 +19,22 @@ function renderAddComment() {
             </form>
         </div>
     `
+}
+
+// Need to pass in username to comment data
+
+function addComment(event) {
+    event.preventDefault()
+    const form = event.target
+    const data = Object.fromEntries(new FormData(form))
+
+    fetch('/api/comments', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+    })
+        .then(res => res.json())
+        // confirm what function to call here
+        .then(() => renderSingleRecipe(event))
+
 }
