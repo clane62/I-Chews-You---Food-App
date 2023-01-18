@@ -21,6 +21,8 @@ function renderAddComment() {
     `
 }
 
+// Need to pass in username to comment data
+
 function addComment(event) {
     event.preventDefault()
     const form = event.target
@@ -32,6 +34,7 @@ function addComment(event) {
         body: JSON.stringify(data)
     })
         .then(res => res.json())
-        .then(() => renderHome())
+        // confirm what function to call here
+        .then(() => renderSingleRecipe(event))
 
 }
