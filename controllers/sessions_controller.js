@@ -9,7 +9,6 @@ const User = require('../models/user')
 // checking if user is logged in
 router.get('/', (req, res) => {
 
-    console.log(req.session.userId)
     User
         .findById(req.session.userId)
         .then(user => {
@@ -33,7 +32,7 @@ router.post('/', (req, res) => {
             } else {
                 const isValidPassword = bcrypt.compareSync(password, user.password_digest)
                 if (user && isValidPassword) {
-                    req.sessionStore.userId = user.id
+                    req.session.userId = user.id
                     res.json(user.username)
                 }
             }
