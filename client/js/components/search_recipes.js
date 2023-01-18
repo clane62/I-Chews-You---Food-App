@@ -16,33 +16,40 @@ function renderSearch() {
 
         findRecipe(searchInput)
     })
-
-    function findRecipe(searchInput) {
-        fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${searchInput}&apikey=9fb4e2597b3f405291312d55676dd441`)
-            .then(response => response.json())
-            .then(response => {
-                const searchOutput = response.results
-
-                console.log(searchOutput)
-                renderSearchList(searchOutput)
-
-            })
-    }
 }
 
-function renderSearchList(searchOutput) {
-    document.querySelector('#page').innerHTML = `
-    <section class='search-rslt'>
-      ${renderSearchResults(searchOutput)}
-    </section>
-  `
+function findRecipe(searchInput) {
+    fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${searchInput}&apiKey=9fb4e2597b3f405291312d55676dd441`)
+        .then(response => response.json())
+        .then(searchResults => {
+            const searchOutput = searchResults.results
+
+            console.log(searchOutput)
+            renderSearchList(searchOutput)
+
+        })
 }
 
-function renderSearchResults(searchOutput) {
-    return searchOutput.map(output => `
-   <section onClick='renderSingleRecipe(event)' class="recipe" data-id='${output.id}'>
-      <h2>${output.title}</h2>
-      <img src='${output.image}' alt=''>
-   </section>
-  `).join(" ")
+function findRecipeById(recipeId) {
+  fetch(`https://api.spoonacular.com/recipes/${recipeId}/information?apiKey=9fb4e2597b3f405291312d55676dd441`)
+    .then(response => response.json())
+    .then(searchResult => {
+      console.log(searchResult)
+    })
 }
+// function renderSearchList(searchOutput) {
+//     document.querySelector('#page').innerHTML = `
+//     <section class='search-rslt'>
+//       ${renderSearchResults(searchOutput)}
+//     </section>
+//   `
+// }
+
+// function renderSearchResults(searchOutput) {
+//     return searchOutput.map(output => `
+//    <section onClick='renderSingleRecipe(event)' class="recipe" data-id='${output.id}'>
+//       <h2>${output.title}</h2>
+//       <img src='${output.image}' alt=''>
+//    </section>
+//   `).join(" ")
+// }
