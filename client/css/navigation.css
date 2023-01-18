@@ -1,15 +1,15 @@
 .header-nav {
-    margin: 0 auto;
-    padding: 0 1rem;
+  margin: 0 auto;
+  /* padding: 0 1rem; */
 }
 
 .header-nav ul {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    padding: 0;
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
 }
 
 .header-nav li {
-    padding: 0 0.5rem;
+  padding: 0 0.5rem;
 }

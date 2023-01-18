@@ -1,8 +1,36 @@
 * {
-    box-sizing: border-box;
-    border: 1px solid red;
+  box-sizing: border-box;
+  border: 1px solid red;
 }
 
 body {
-    max-width: 1200px;
+  max-width: 1200px;
+  font-family: Arial, Helvetica, sans-serif;
+
+}
+
+h2 {
+  text-transform: uppercase;
+}
+
+.header-nav {
+  padding-left: 0rem;
+  padding-right: 0rem;
+}
+
+ul {
+  padding-left: 0;
+  margin-top: 0rem;
+  margin-bottom: 0.5rem;
+}
+
+li {
+  text-transform: uppercase;
+  font-weight: 300;
+  color: black;
+  margin: 0.2rem;
+}
+
+li:hover {
+  color: rgb(249, 187, 54);
 }
