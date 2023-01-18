@@ -1,25 +1,21 @@
 function renderHome() {
-  document.querySelector('#page').innerHTML = `
-
-    `
+  // document.querySelector('#page').innerHTML = ``
   randomRecipe()
-
 }
+
 function randomRecipe() {
 
-  fetch(`https://api.spoonacular.com/recipes/random?apiKey=9fb4e2597b3f405291312d55676dd441 `)
+  fetch(`https://api.spoonacular.com/recipes/random?apiKey=99a56507b069468ea74c05caf5aac57b`)
     .then(response => response.json())
     .then(response => {
       var food = response.recipes[0]
+      document.querySelector('#page').innerHTML = `
+      <button class="" onClick="randomRecipe()">Chews Another Recipe</button>
 
-      document.querySelector('#page').innerHTML += `
-      <header>
+      <section onclick='renderSingleRecipe(event)' class='feature-recipe recipe' data-id='${food.id}'>
         <h2>${food.title}</h2>
-        <button class="" onClick="renderHome()">Chews Another Recipe</button>
-        </header>
+
         <img src='${food.image}' alt=''>
-`
-
-
-    })
+      </section>
+    `})
 }

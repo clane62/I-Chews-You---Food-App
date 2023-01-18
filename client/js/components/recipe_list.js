@@ -1,16 +1,16 @@
-function renderSearchList(searchOutput) {
+function renderSearchList(searchResults) {
     document.querySelector('#page').innerHTML = `
       <section class='search-rslt'>
-        ${renderSearchResults(searchOutput)}
+        ${renderSearchResults(searchResults)}
       </section>
     `
 }
   
-function renderSearchResults(searchOutput) {
-    return searchOutput.map(output => `
-        <section onClick='renderSingleRecipe(event)' class="recipe" data-id='${output.id}'>
-            <h2>${output.title}</h2>
-            <img src='${output.image}' alt=''>
+function renderSearchResults(searchResults) {
+    return searchResults.map(recipe => `
+        <section onClick='renderSingleRecipe(event)' class="recipe" data-id='${recipe.id}'>
+            <h2>${recipe.title}</h2>
+            <img src='${recipe.image}' alt=''>
         </section>
     `).join(" ")
 }
