@@ -16,10 +16,11 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
     const { rating, comment } = req.body
 
+    const userId = req.session.userId
     // need to pass in recipe_id, username
 
-    User
-        .create(recipe_id, username, rating, comment)
+    Comment
+        .create(recipe_id, userId, rating, comment)
         .then(userName => res.json(userName))
 })
 
