@@ -18,7 +18,7 @@ function renderSearch() {
   })
 
   function findRecipe(searchInput) {
-    fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${searchInput}&${ENV['SPOONACULAR_API_KEY']}`)
+    fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${searchInput}&apikey=9fb4e2597b3f405291312d55676dd441`)
       .then(response => response.json())
       .then(response => {
         const searchOutput = response.results
