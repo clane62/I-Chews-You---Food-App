@@ -3,6 +3,10 @@
   border: 1px solid red;
 }
 
+.header {
+  background-image: url(../css/images/i_chews_you_logo.png)
+}
+
 body {
   max-width: 1200px;
   font-family: Arial, Helvetica, sans-serif;
