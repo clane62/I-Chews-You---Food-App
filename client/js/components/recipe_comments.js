@@ -5,27 +5,27 @@ function renderSingleRecipe(event) {
 
     // search spoonacular API for detailed information about specific recipe
     // store the results in an object
-    var recipeObject = findSingleRecipe(recipeDataId)
+    var recipeObject = findRecipeById(recipeDataId)
 
     // formatting of info below to be updated based on agreed information to display
-    document.querySelector('#page').innerHTML = `
-        <section class='recipe-info>
-            <h2>${recipeObject.title}</h2>
-            <img src='${recipeObject.image}' alt=''>
+    // document.querySelector('#page').innerHTML = `
+    //     <section class='recipe-info>
+    //         <h2>${recipeObject.title}</h2>
+    //         <img src='${recipeObject.image}' alt=''>
 
-            <ul>
-                <li>${recipeObject.servings}</li>
-                <li>${recipeObject.time}</li>
-            </ul>
+    //         <ul>
+    //             <li>${recipeObject.servings}</li>
+    //             <li>${recipeObject.time}</li>
+    //         </ul>
             
-            <p>${recipeObject.ingredients}</p>
-            <p>${recipeObject.directions}</p>
-        </section>
+    //         <p>${recipeObject.ingredients}</p>
+    //         <p>${recipeObject.directions}</p>
+    //     </section>
 
-        <section class='comment-sctn'>
-            ${renderComments(recipeObject.recipeID)}
-        </section>
-    `
+    //     <section class='comment-sctn'>
+    //         ${renderComments(recipeObject.recipeID)}
+    //     </section>
+    // `
 }
 
 function renderComments(recipeId) {
