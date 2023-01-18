@@ -5,6 +5,14 @@ const router = express.Router()
 const Comment = require('../models/comment')
 
 // routes
+router.get('/:id', (req, res) => {
+    const recipeId = req.params.id
+
+    Comment
+        .findByRecipeId(recipeId)
+        .then(comments => res.json(comments))
+})
+
 router.post('/', (req, res) => {
     const { rating, comment } = req.body
 
@@ -14,3 +22,5 @@ router.post('/', (req, res) => {
         .create(recipe_id, username, rating, comment)
         .then(userName => res.json(userName))
 })
+
+module.exports = router

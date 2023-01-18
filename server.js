@@ -8,6 +8,7 @@ const sessions = require('./middlewares/sessions')
 const usersController = require('./controllers/users_controller')
 const sessionsController = require('./controllers/sessions_controller')
 const recipesController = require('./controllers/recipes_controller')
+const commentsController = require('./controllers/comments_controller')
 
 
 const app = express()
@@ -26,4 +27,5 @@ app.use(sessions)
 // middleware for controller routes
 app.use('/api/users', usersController)
 app.use('/api/sessions', sessionsController)
-// app.use('/api/sessions', sessionsController)
+app.use('/api/recipes', recipesController)
+app.use('/api/comments', commentsController)
