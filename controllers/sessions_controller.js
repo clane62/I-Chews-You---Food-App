@@ -8,6 +8,8 @@ const User = require('../models/user')
 // routes
 // checking if user is logged in
 router.get('/', (req, res) => {
+
+    console.log(req.session.userId)
     User
         .findById(req.session.userId)
         .then(user => {

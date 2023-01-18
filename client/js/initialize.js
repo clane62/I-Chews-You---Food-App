@@ -1,7 +1,7 @@
 const state = {
-  // populate with other key value pairs
-  reviews: [],
-  loggedInUserName: null
+    // populate with other key value pairs
+    reviews: [],
+    loggedInUserName: null
 }
 
 // PLACEHOLDER CODE
@@ -13,9 +13,9 @@ const state = {
 //         renderReviewList()
 //     })
 
-// fetch('/api/sessions')
-//     .then(res => res.json())
-//     .then(userName => state.loggedInUserName = userName)
+fetch('/api/sessions')
+    .then(res => res.json())
+    .then(userName => state.loggedInUserName = userName)
 
 // fetch(`https://api.spoonacular.com/recipes/random?apiKey=16157713a2bb48259ac28d6dce7b2976`)
 //   .then(response => response.json())
