@@ -2,7 +2,7 @@ function renderAddComment() {
 
 
     // replace below line with relevant position comments box should go
-    document.querySelector('#page').innerHTML = `
+    document.querySelector('.new-comment').innerHTML = `
         <div class="comment-area">
             <form onSubmit="addComment(event)">
                 <fieldset>
