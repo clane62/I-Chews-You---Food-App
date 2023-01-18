@@ -3,8 +3,10 @@
   border: 1px solid red;
 }
 
-.header {
-  background-image: url(../css/images/i_chews_you_logo.png)
+body {
+  background-image: url(./images/grey_stripes_1.png);
+  text-align: center;
+
 }
 
 body {
@@ -13,28 +15,26 @@ body {
 
 }
 
+.random-button {
+  background-color: white;
+  width: 300px;
+  height: 100px;
+  border: 0rem;
+
+}
+
+h1 {
+  text-align: left;
+}
+
 h2 {
   text-transform: uppercase;
 }
 
-.header-nav {
-  padding-left: 0rem;
-  padding-right: 0rem;
+.feature-image {
+  text-align: center;
 }
 
-ul {
-  padding-left: 0;
-  margin-top: 0rem;
-  margin-bottom: 0.5rem;
-}
-
-li {
-  text-transform: uppercase;
-  font-weight: 300;
-  color: black;
-  margin: 0.2rem;
-}
-
-li:hover {
-  color: rgb(249, 187, 54);
+.heading {
+  background-color: white 0.5;
 }

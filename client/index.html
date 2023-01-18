@@ -31,14 +31,38 @@
 
   <header>
     <h1 onClick="randomRecipe()">I CHEWS YOU</h1>
+    <!-- <div class="header-image">
+      <img src="../client/css/images/i_chews_you_png.png" alt="logo">
+    </div> -->
+
   </header>
 
   <nav class="header-nav">
     <ul>
-      <li onClick="randomRecipe()">Home</li>
-      <li class="" onClick="renderSearch()">Search</li>
-      <li class="" onClick="renderSignUp()">Sign up</li>
-      <li class="" onClick="renderLogIn()">Log in</li>
+      <div class="home-outer">
+        <li class="material-symbols-outlined home-link" onClick="randomRecipe()">Home</li>
+        <div class="home-div">
+          HOME
+        </div>
+      </div>
+      <div class="search-outer">
+        <li class="material-symbols-outlined search-link" onClick="renderSearch()">Search</li>
+        <div class="search-div">
+          SEARCH
+        </div>
+      </div>
+      <div class="sign-up-outer">
+        <li class="material-symbols-outlined sign-up-link" onClick="renderSignUp()">person_add</li>
+        <div class="signup-div">
+          SIGN UP
+        </div>
+      </div>
+      <div class="login-outer">
+        <li class="material-symbols-outlined log-in-link" onClick="renderLogIn()">Login</li>
+        <div class="login-div">
+          LOG IN
+        </div>
+      </div>
     </ul>
   </nav>
 
