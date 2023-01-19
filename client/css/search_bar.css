@@ -1,10 +1,17 @@
 .display-image {
-  /* random-icon */
+  display: flex;
+  text-align: center;
   flex-direction: column;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   align-content: center;
-  background-color: white;
   align-items: center;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  background-color: white;
+  min-height: 400px;
+  padding: 2rem;
+  width: 1000px;
+
 
 
 }
@@ -12,31 +19,53 @@
 .search-image img {
   width: 1000px;
   object-fit: cover;
+  background-color: white;
 }
 
-.div-form {
+.div-form form {
   display: flex;
   flex-direction: column;
-  flex-wrap: nowrap;
+  justify-content: center;
+  margin: 0.5rem;
   align-content: center;
-  justify-content: space;
-  align-items: center;
-
-  text-align: center;
-  display: flex;
-  background-color: white;
-  margin-top: -15rem;
-  opacity: 0.8;
 
 }
 
 
-.search-recipe {
-  height: 20px;
+
+.div-form input {
+  padding: 1rem;
+  width: 600px;
+  text-align: left;
 }
 
 .div-form button {
-  height: 20px;
+  /* height: 15px; */
   width: 150px;
-  margin: 1rem;
+  background-color: black;
+  opacity: 1;
+  padding: 0.5rem;
+  text-align: center;
+  margin-left: 240px;
+  margin-top: 10px;
+  border: 0px;
+  color: white;
+}
+
+.div-form button:hover {
+  background-color: rgb(249, 187, 54);
+}
+
+
+.div-form {
+  text-align: center;
+  display: flex;
+  background-color: white;
+  flex-direction: column;
+  margin-top: -20rem;
+  opacity: 0.8;
+  align-content: center;
+  max-width: fit-content;
+  padding: 1.5rem;
+  justify-content: center;
 }
