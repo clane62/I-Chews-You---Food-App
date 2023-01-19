@@ -1,23 +1,23 @@
 function renderSingleRecipe(event) {
-    const recipeButton = event.target
-    const recipeDOM = recipeButton.closest('.recipe')
-    const recipeDataId = recipeDOM.dataset.id
+  const recipeButton = event.target
+  const recipeDOM = recipeButton.closest('.recipe')
+  const recipeDataId = recipeDOM.dataset.id
 
-    // search spoonacular API for detailed information about specific recipe
-    // store the results in an object
-    var recipeObject = findRecipeById(recipeDataId)
+  // search spoonacular API for detailed information about specific recipe
+  // store the results in an object
+  var recipeObject = findRecipeById(recipeDataId)
 
-    fetch(`https://api.spoonacular.com/recipes/${recipeDataId}/information?apiKey=99a56507b069468ea74c05caf5aac57b`)
-        .then(response => response.json())
-        .then(renderComments(recipeDataId))
-        .then(searchResult => {
-            renderRecipeDetail(searchResult)
-        })
+  fetch(`https://api.spoonacular.com/recipes/${recipeDataId}/information?apiKey=99a56507b069468ea74c05caf5aac57b`)
+    .then(response => response.json())
+    .then(renderComments(recipeDataId))
+    .then(searchResult => {
+      renderRecipeDetail(searchResult)
+    })
 }
 
 function renderRecipeDetail(recipeObject) {
-    // formatting of info below to be updated based on agreed information to display
-    document.querySelector('#page').innerHTML = `
+  // formatting of info below to be updated based on agreed information to display
+  document.querySelector('#page').innerHTML = `
         <section class='recipe-info'>
             <h2>${recipeObject.title}</h2>
             <img src='${recipeObject.image}' alt=''>
@@ -57,24 +57,24 @@ function renderRecipeDetail(recipeObject) {
 }
 
 function renderExtendedIngredients(ingredients) {
-    return ingredients.map(ingredient => `
+  return ingredients.map(ingredient => `
         <li>${ingredient.original}</li>
     `).join(' ')
 }
 
 function renderComments(recipeId) {
-    // find comments in db by recipe id and store as variable
-    // var recipeComments = findRecipeDB(recipeId)
+  // find comments in db by recipe id and store as variable
+  // var recipeComments = findRecipeDB(recipeId)
 
-    return fetch(`/api/comments/${recipeId}`)
-        .then(res => res.json())
-        .then(reviews => {
-            state.reviews = reviews
-        })
+  return fetch(`/api/comments/${recipeId}`)
+    .then(res => res.json())
+    .then(reviews => {
+      state.reviews = reviews
+    })
 }
 
 function renderReviewList() {
-    return state.reviews.map(review => `
+  return state.reviews.map(review => `
     <div class='review' data-id='${review.review_id}'>
         <div class="user-details">
             <h4>${review.username}</h4>
@@ -91,12 +91,12 @@ function renderReviewList() {
 }
 
 function renderControls(username, recipeId, reviewId) {
-    if (state.loggedInUserName === username) {
-        return `
+  if (state.loggedInUserName === username) {
+    return `
         <a onClick='renderEditComment(${recipeId}, ${reviewId})'>Edit</a>
         <button onClick='deleteReview(event)'>Delete</button>
         `
-    } else {
-        return ""
-    }
+  } else {
+    return ""
+  }
 }
