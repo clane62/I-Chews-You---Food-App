@@ -23,10 +23,18 @@ const Comment = {
     },
 
     findByRecipeId: recipeId => {
-        const sql = `SELECT user_id, recipe_id, rating, review, username  FROM reviews
-        INNER JOIN users
-            ON reviews.user_id = users.id
-        WHERE recipe_id = $1`
+        const sql = `
+            SELECT 
+                r.id as review_id
+                ,user_id
+                ,recipe_id
+                ,rating
+                ,review
+                ,username  
+            FROM reviews as r
+            INNER JOIN users as u ON r.user_id = u.id
+            WHERE recipe_id = $1;
+        `
 
         return db
             .query(sql, [recipeId])
@@ -38,6 +46,18 @@ const Comment = {
             //     }
             // })
             .then(dbRes => dbRes.rows)
+    },
+
+    delete: reviewId => {
+        const sql = 'DELETE FROM reviews WHERE id = $1'
+
+        return db.query(sql, [reviewId])
+    },
+
+    edit: reviewId => {
+        const sql = 'UPDATE reviews SET '
+
+        return db.query(sql, [reviewId])
     }
 
 }

@@ -14,7 +14,7 @@ router.get('/:id', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-    const { recipeId, rating, comment } = req.body
+    const { recipeId, ratings, comment } = req.body
 
     const userId = req.session.userId
     // need to pass in recipe_id, username
@@ -22,9 +22,26 @@ router.post('/', (req, res) => {
         res.status(400).json({ error: 'need to be logged in to comment' })
     } else {
         Comment
-            .create(recipeId, userId, rating, comment)
+            .create(userId, recipeId, ratings, comment)
             .then(userName => res.json(userName))
     }
+})
+
+router.delete('/:id', (req, res) => {
+    const reviewId = req.params.id
+
+    Comment
+        .delete(reviewId)
+        .then(() => res.json({ message: 'deleted successfully' }))
+})
+
+router.put('/:id', (req, res) => {
+    const reviewId = req.params.id
+
+    Comment
+        .edit(reviewId)
+        .then(() => res.json({ message: 'edited successfully' }))
+
 })
 
 module.exports = router

@@ -7,12 +7,12 @@ function renderSingleRecipe(event) {
     // store the results in an object
     var recipeObject = findRecipeById(recipeDataId)
 
-    fetch(`https://api.spoonacular.com/recipes/${recipeDataId}/information?apiKey=9fb4e2597b3f405291312d55676dd441`)
-    .then(response => response.json())
-    .then(renderComments(recipeDataId))
-    .then(searchResult => {
-      renderRecipeDetail(searchResult)
-    })
+    fetch(`https://api.spoonacular.com/recipes/${recipeDataId}/information?apiKey=16157713a2bb48259ac28d6dce7b2976`)
+        .then(response => response.json())
+        .then(renderComments(recipeDataId))
+        .then(searchResult => {
+            renderRecipeDetail(searchResult)
+        })
 }
 
 function renderRecipeDetail(recipeObject) {
@@ -50,14 +50,14 @@ function renderRecipeDetail(recipeObject) {
             <div class='new-comment'></div>
             
             <div class='existing-comments'>
-                ${renderReviewList()}
+                ${renderReviewList(recipeObject.id)}
             </div>
         </section>
     `
 }
 
 function renderExtendedIngredients(ingredients) {
-    return ingredients.map(ingredient =>`
+    return ingredients.map(ingredient => `
         <li>${ingredient.original}</li>
     `).join(' ')
 }
@@ -65,8 +65,8 @@ function renderExtendedIngredients(ingredients) {
 function renderComments(recipeId) {
     // find comments in db by recipe id and store as variable
     // var recipeComments = findRecipeDB(recipeId)
-    
-     return fetch(`/api/comments/${recipeId}`)
+
+    return fetch(`/api/comments/${recipeId}`)
         .then(res => res.json())
         .then(reviews => {
             state.reviews = reviews
@@ -75,10 +75,28 @@ function renderComments(recipeId) {
 
 function renderReviewList() {
     return state.reviews.map(review => `
-    <div class='review'>
-        <h4>${review.username}</h4>
-        <p>${review.rating}</p>
-        <p>${review.review}</p>
+    <div class='review' data-id='${review.review_id}'>
+        <div class="user-details">
+            <h4>${review.username}</h4>
+            <p>${review.rating}</p>
+        </div>
+        <div class="review-text">
+            <p>${review.review}</p>
+        </div>
+        <div class="comment-controls">
+            ${renderControls(review.username, review.recipe_id, review.review_id)}
+        </div>
     </div>
     `).join('')
+}
+
+function renderControls(username, recipeId, reviewId) {
+    if (state.loggedInUserName === username) {
+        return `
+        <a href="" onClick='renderEditComment(${recipeId, reviewId})'>Edit</a>
+        <button onClick='deleteReview(event)'>Delete</button>
+        `
+    } else {
+        return ""
+    }
 }
