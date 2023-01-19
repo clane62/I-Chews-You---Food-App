@@ -10,10 +10,13 @@
   <!-- Material icons -->
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+
 
   <!-- CSS -->
   <link rel="stylesheet" href="./css/main.css">
   <link rel="stylesheet" href="./css/navigation.css">
+  <link rel="stylesheet" href="./css/search_list.css">
 
   <!-- Our client-side functions -->
   <script src="./js/initialize.js"></script>
@@ -30,41 +33,39 @@
 <body>
 
   <header>
-    <h1 onClick="randomRecipe()">I CHEWS YOU</h1>
-    <!-- <div class="header-image">
-      <img src="../client/css/images/i_chews_you_png.png" alt="logo">
-    </div> -->
+    <img class="header-image" onClick="randomRecipe()" src="./css/images/i_chews_you_png.png" alt="logo">
+    <nav class="header-nav">
+      <ul>
+        <div class="home-outer">
+          <li class="material-symbols-outlined home-link" onClick="randomRecipe()">Home</li>
+          <div class="home-div" onClick="randomRecipe()">
+            HOME
+          </div>
+        </div>
+        <div class="search-outer">
+          <li class="material-symbols-outlined search-link" onClick="renderSearch()">Search</li>
+          <div class="search-div" onClick="renderSearch()">
+            SEARCH
+          </div>
+        </div>
+        <div class="sign-up-outer">
+          <li class="material-symbols-outlined sign-up-link" onClick="renderSignUp()">person_add</li>
+          <div class="signup-div" onClick="renderSignUp()">
+            SIGN UP
+          </div>
+        </div>
+        <div class="login-outer">
+          <li class="material-symbols-outlined log-in-link" onClick="renderLogIn()">Login</li>
+          <div class="login-div" onClick="renderLogIn()">
+            LOG IN
+          </div>
+        </div>
+      </ul>
+    </nav>
+
 
   </header>
 
-  <nav class="header-nav">
-    <ul>
-      <div class="home-outer">
-        <li class="material-symbols-outlined home-link" onClick="randomRecipe()">Home</li>
-        <div class="home-div">
-          HOME
-        </div>
-      </div>
-      <div class="search-outer">
-        <li class="material-symbols-outlined search-link" onClick="renderSearch()">Search</li>
-        <div class="search-div">
-          SEARCH
-        </div>
-      </div>
-      <div class="sign-up-outer">
-        <li class="material-symbols-outlined sign-up-link" onClick="renderSignUp()">person_add</li>
-        <div class="signup-div">
-          SIGN UP
-        </div>
-      </div>
-      <div class="login-outer">
-        <li class="material-symbols-outlined log-in-link" onClick="renderLogIn()">Login</li>
-        <div class="login-div">
-          LOG IN
-        </div>
-      </div>
-    </ul>
-  </nav>
 
 
   <main id="page" class="content"></main>
