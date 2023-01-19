@@ -1,4 +1,4 @@
-function renderAddComment() {
+function renderAddComment(recipeId) {
 
 
     // replace below line with relevant position comments box should go
@@ -7,17 +7,19 @@ function renderAddComment() {
             <form onSubmit="addComment(event)">
             
                 <label for="">Recipe ID</label>
-                <input type="text" name="recipeId" value="${recipeObject.id}">
-            
-                <fieldset>
-                    <label for="">Rating</label>
-                    <input type="text" name="rating" value size="50" maxlength="50">
-                </fieldset>
+                <input type="text" name="recipeId" value="${recipeId}">
+        
+                <label for="rating-options">Rating</label>
+                <select name="rating-options" id="rating-options">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
 
-                <fieldset>
-                    <label for="">Comment</label>
-                    <textarea name="comment" id="" cols="50" rows="10"></textarea>
-                </fieldset>
+                <label for="">Comment</label>
+                <textarea name="comment" id="" cols="50" rows="10"></textarea>
 
                 <button>Add comment</button>
             </form>
