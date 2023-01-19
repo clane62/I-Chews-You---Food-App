@@ -55,4 +55,5 @@ function logOut() {
     })
         .then(res => res.json())
         .then(res => state.loggedInUserName = res)
+        .then(() => renderNavBtn())
 }
