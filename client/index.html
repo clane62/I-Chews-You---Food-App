@@ -2,74 +2,72 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>I CHEWS YOU</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I CHEWS YOU</title>
 
-  <!-- Material icons -->
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <!-- Material icons -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
 
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="./css/main.css">
-  <link rel="stylesheet" href="./css/navigation.css">
-  <link rel="stylesheet" href="./css/search_list.css">
-  <link rel="stylesheet" href="./css/search_bar.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/navigation.css">
+    <link rel="stylesheet" href="./css/search_list.css">
+    <link rel=“stylesheet” href=“./css/search_bar.css”>
 
-  <!-- Our client-side functions -->
-  <script src="./js/initialize.js"></script>
-  <script defer src="./js/components/log_in.js"></script>
-  <script defer src="./js/components/sign_up.js"></script>
-  <script defer src="./js/components/search_recipes.js"></script>
-  <script defer src="./js/components/home.js"></script>
-  <script defer src="./js/components/recipe_comments.js"></script>
-  <script defer src="./js/components/recipe_list.js"></script>
-  <script defer src="./js/components/add_comment.js"></script>
+    <!-- Our client-side functions -->
+    <script src="./js/initialize.js"></script>
+    <script defer src="./js/components/log_in.js"></script>
+    <script defer src="./js/components/sign_up.js"></script>
+    <script defer src="./js/components/search_recipes.js"></script>
+    <script defer src="./js/components/home.js"></script>
+    <script defer src="./js/components/recipe_comments.js"></script>
+    <script defer src="./js/components/recipe_list.js"></script>
+    <script defer src="./js/components/add_comment.js"></script>
+    <script defer src="./js/components/nav.js"></script>
 
 </head>
 
-<body>
+<body onLoad="renderNavBtn()">
 
-  <header>
-    <img class="header-image" onClick="randomRecipe()" src="./css/images/i_chews_you_png.png" alt="logo">
-    <nav class="header-nav">
-      <ul>
-        <div class="home-outer">
-          <li class="material-symbols-outlined home-link" onClick="randomRecipe()">Home</li>
-          <div class="home-div" onClick="randomRecipe()">
-            HOME
-          </div>
-        </div>
-        <div class="search-outer">
-          <li class="material-symbols-outlined search-link" onClick="renderSearch()">Search</li>
-          <div class="search-div" onClick="renderSearch()">
-            SEARCH
-          </div>
-        </div>
-        <div class="sign-up-outer">
-          <li class="material-symbols-outlined sign-up-link" onClick="renderSignUp()">person_add</li>
-          <div class="signup-div" onClick="renderSignUp()">
-            SIGN UP
-          </div>
-        </div>
-        <div class="login-outer">
-          <li class="material-symbols-outlined log-in-link" onClick="renderLogIn()">Login</li>
-          <div class="login-div" onClick="renderLogIn()">
-            LOG IN
-          </div>
-        </div>
-      </ul>
-    </nav>
+    <header>
+        <img class="header-image" onClick="randomRecipe()" src="./css/images/i_chews_you_png.png" alt="logo">
+        <nav class="header-nav">
+            <ul>
+                <div class="home-outer">
+                    <li class="material-symbols-outlined home-link" onClick="randomRecipe()">Home</li>
+                    <div class="home-div" onClick="randomRecipe()">
+                        HOME
+                    </div>
+                </div>
+                <div class="search-outer">
+                    <li class="material-symbols-outlined search-link" onClick="renderSearch()">Search</li>
+                    <div class="search-div" onClick="renderSearch()">
+                        SEARCH
+                    </div>
+                </div>
+                <div class="sign-up-outer">
+
+                </div>
+                <div class="login-outer">
+
+                </div>
+                <div class="logout-outer">
+
+                </div>
+            </ul>
+        </nav>
 
 
-  </header>
+    </header>
 
 
 
-  <main id="page" class="content"></main>
+    <main id="page" class="content"></main>
 
 </body>
 
