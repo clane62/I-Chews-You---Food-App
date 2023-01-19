@@ -1,9 +1,15 @@
 function renderSearch() {
   document.querySelector('#page').innerHTML = `
-  <form action="">
-    <input type="text">
-    <button class="search-recipe">Search</button>
-  </form>
+  <div class="display-image">
+    <img class="search-image" src="./css/images/search-image-resized.png" alt="">
+  </div>
+  <div class="div-form">
+    <form action="">
+      <input type="text">
+      <button class="search-recipe">Search</button>
+    </form>
+  </div>
+  
   <span class="search-results"></span>
   `
   const searchResults = document.querySelector('.search-results')
@@ -19,7 +25,7 @@ function renderSearch() {
 }
 
 function findRecipe(searchInput) {
-  fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${searchInput}&apiKey=9fb4e2597b3f405291312d55676dd441`)
+  fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${searchInput}&apiKey=bd035646064d4151aa2075b5f34bef74`)
     .then(response => response.json())
     .then(searchResults => {
       const searchOutput = searchResults.results
@@ -31,7 +37,7 @@ function findRecipe(searchInput) {
 }
 
 function findRecipeById(recipeId) {
-  fetch(`https://api.spoonacular.com/recipes/${recipeId}/information?apiKey=16157713a2bb48259ac28d6dce7b2976`)
+  fetch(`https://api.spoonacular.com/recipes/${recipeId}/information?apiKey=bd035646064d4151aa2075b5f34bef74`)
     .then(response => response.json())
     .then(searchResult => {
       return searchResult

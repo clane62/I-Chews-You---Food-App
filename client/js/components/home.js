@@ -5,7 +5,7 @@ function renderHome() {
 
 function randomRecipe() {
 
-  fetch(`https://api.spoonacular.com/recipes/random?apiKey=247841a848f5433ba355a9d1cb38b293`)
+  fetch(`https://api.spoonacular.com/recipes/random?apiKey=bd035646064d4151aa2075b5f34bef74`)
     .then(response => response.json())
     .then(response => {
       var food = response.recipes[0]
