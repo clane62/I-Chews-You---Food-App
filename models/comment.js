@@ -54,10 +54,10 @@ const Comment = {
         return db.query(sql, [reviewId])
     },
 
-    edit: reviewId => {
-        const sql = 'UPDATE reviews SET '
+    edit: (reviewId, ratings, comment) => {
+        const sql = 'UPDATE reviews SET rating = $2, review = $3 WHERE id = $1'
 
-        return db.query(sql, [reviewId])
+        return db.query(sql, [reviewId, ratings, comment])
     }
 
 }

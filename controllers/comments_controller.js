@@ -35,11 +35,12 @@ router.delete('/:id', (req, res) => {
         .then(() => res.json({ message: 'deleted successfully' }))
 })
 
-router.put('/:id', (req, res) => {
-    const reviewId = req.params.id
+router.put('/', (req, res) => {
+    const { reviewId, ratings, comment } = req.body
+
 
     Comment
-        .edit(reviewId)
+        .edit(reviewId, ratings, comment)
         .then(() => res.json({ message: 'edited successfully' }))
 
 })

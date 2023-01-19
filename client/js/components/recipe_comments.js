@@ -7,7 +7,7 @@ function renderSingleRecipe(event) {
     // store the results in an object
     var recipeObject = findRecipeById(recipeDataId)
 
-    fetch(`https://api.spoonacular.com/recipes/${recipeDataId}/information?apiKey=16157713a2bb48259ac28d6dce7b2976`)
+    fetch(`https://api.spoonacular.com/recipes/${recipeDataId}/information?apiKey=99a56507b069468ea74c05caf5aac57b`)
         .then(response => response.json())
         .then(renderComments(recipeDataId))
         .then(searchResult => {
@@ -93,7 +93,7 @@ function renderReviewList() {
 function renderControls(username, recipeId, reviewId) {
     if (state.loggedInUserName === username) {
         return `
-        <a href="" onClick='renderEditComment(${recipeId, reviewId})'>Edit</a>
+        <a onClick='renderEditComment(${recipeId}, ${reviewId})'>Edit</a>
         <button onClick='deleteReview(event)'>Delete</button>
         `
     } else {
