@@ -35,6 +35,7 @@ function login(event) {
                 renderError(res.error)
             } else {
                 state.loggedInUserName = res
+                renderNavBtn()
                 renderHome()
             }
         })
@@ -46,4 +47,12 @@ function renderError(errorMessage) {
     document.querySelector('#page').innerHTML =
         `<h2 style='color: red;'>${errorMessage}</h2>` +
         document.querySelector('#page').innerHTML
+}
+
+function logOut() {
+    fetch('/api/sessions', {
+        method: 'DELETE'
+    })
+        .then(res => res.json())
+        .then(res => state.loggedInUserName = res)
 }

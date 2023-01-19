@@ -9,6 +9,7 @@ const User = require('../models/user')
 // checking if user is logged in
 router.get('/', (req, res) => {
 
+    console.log(req.session)
     User
         .findById(req.session.userId)
         .then(user => {
@@ -37,6 +38,12 @@ router.post('/', (req, res) => {
                 }
             }
         })
+})
+
+// user log out
+router.delete('/', (req, res) => {
+    req.session.userId = null
+    res.json(req.session.userId)
 })
 
 module.exports = router
