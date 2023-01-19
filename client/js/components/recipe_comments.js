@@ -102,9 +102,9 @@ function renderControls(username, reviewId) {
 }
 
 function ifNoComments() {
-    if (state.reviews.length === 0) {
-        return 'Start the conversation.'
-    } else {
-        return ''
-    }
+  if (state.reviews.length === 0) {
+    return 'Start the conversation.'
+  } else {
+    return ''
+  }
 }

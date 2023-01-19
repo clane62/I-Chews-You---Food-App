@@ -12,13 +12,43 @@ main {
   /* background-color: white; */
   padding: 0.5rem;
   max-width: none;
-  text-align: center;
-
+  text-align: left;
 }
 
-.header-image {
-  max-width: 300px;
+.logo-rollover {
+  width: 300px;
+  max-width: 100%;
+  position: relative;
 }
+
+.logo-rollover img.headerimage {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  object-fit: contain;
+  width: 300px;
+  max-width: 100%;
+}
+
+.logo-rollover img.header-hover {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity .2s;
+}
+
+.logo-rollover:hover img.header-hover {
+  opacity: 1;
+}
+
+
+
 
 header {
   background-color: white;
@@ -67,13 +97,6 @@ body {
 }
 
 
-/* .material-symbols-outlined {
-  justify-content: center;
-  background-color: white;
-  align-items: center;
-  margin-bottom: -1rem;
-} */
-
 
 
 h1 {
@@ -85,8 +108,6 @@ h2 {
 }
 
 .feature-recipe {
-  /* max-width: fit-content; */
-  /* padding-right: 1rem; */
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -123,11 +144,4 @@ h2 {
   opacity: 1;
   color: rgb(249, 187, 54);
 
-
 }
-
-/* .heading {
-  background-color: white;
-  opacity: 0.8;
-  margin-top: -7rem;
-} */
