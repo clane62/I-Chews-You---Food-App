@@ -10,7 +10,7 @@ function renderAddComment(recipeId) {
             <form onSubmit="addComment(event)">
             
                 <label for="">Recipe ID</label>
-                <input type="text" name="recipeId" value="${recipeId}">
+                <input type="text" name="recipeId" value="${recipeId}" readonly>
         
                 <fieldset>
                     <label for="ratings">Rating</label>
@@ -69,46 +69,65 @@ function renderError(errorMessage) {
 }
 
 function removeAddComment() {
-    document.querySelector('.new-comment').innerHTML = `
-        <p>Reload to see comments</p>
-    `
+    const recipeId = state.reviews[0].recipe_id
+
+    return fetch(`/api/comments/${recipeId}`)
+        .then(res => res.json())
+        .then(reviews => {
+        state.reviews = reviews
+        })
+        .then(document.querySelector('.existing-comments').innerHTML = renderReviewList())
+
+    // renderComments(recipeId).then(console.log(state.reviews))
+    
 }
 
 // =======================================================================
 // EDIT COMMENTS
 // =======================================================================
 
-// placeholder code
 
-function renderEditComment(recipeId, reviewId) {
+function renderEditComment(reviewId) {
+    const comment = state.reviews.filter(review => { return review.review_id === reviewId})[0]
 
     // replace below line with relevant position comments box should go
-    document.querySelector('.new-comment').innerHTML = `
+    document.querySelector(`.review-${reviewId}`).innerHTML = `
         <div class="comment-area">
             <form onSubmit="editComment(event)">
             
-                <label for="">Review ID</label>
-                <input type="text" name="reviewId" value="${reviewId}">
+                <div style='visibility:hidden'>
+                    <label for="">Review ID</label>
+                    <input type="text" name="reviewId" value="${reviewId}" readonly>
+                </div>
             
-                <label for="">Recipe ID</label>
-                <input type="text" name="recipeId" value="${recipeId}">
+                <div style='visibility:hidden'>
+                    <label for="">Recipe ID</label>
+                    <input type="text" name="recipeId" value="${comment.recipe_id}" readonly>
+                </div>
         
-                <fieldset>
-                    <label for="ratings">Rating</label>
-                    <select name="ratings" id="ratings">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </select>
-                </fieldset>
-
-                <fieldset>
-                    <label for="">Comment</label>
-                    <textarea name="comment" id="" cols="50" rows="10"></textarea>
-                </fieldset>
-
+                <div class="user-details">
+                    <h4>${comment.username}</h4>
+                    <div>
+                        <fieldset>
+                            <label for="ratings">Rating:</label>
+                            <select name="ratings" id="ratings" value='${comment.rating}'>
+                                <option ${ifSelected(comment.rating, 1)} value='1'>1</option>
+                                <option ${ifSelected(comment.rating, 2)} value='2'>2</option>
+                                <option ${ifSelected(comment.rating, 3)} value='3'>3</option>
+                                <option ${ifSelected(comment.rating, 4)} value='4'>4</option>
+                                <option ${ifSelected(comment.rating, 5)} value='5'>5</option>
+                            </select>
+                        </fieldset>
+                    </div>
+                </div>
+                
+                <div class="review-text">
+                    <fieldset>
+                        <label for="">Comment</label>
+                        <textarea name="comment" id="" cols="50" rows="10">${comment.review}</textarea>
+                    </fieldset>
+                </div>
+                
                 <button>Edit comment</button>
             </form>
         </div>
@@ -159,4 +178,12 @@ function deleteReview(event) {
             document.querySelector('.existing-comments').innerHTML = renderReviewList()
 
         })
+}
+
+function ifSelected(rating, option) {
+    if (rating === option) {
+        return 'selected'
+    } else {
+        return ''
+    }
 }

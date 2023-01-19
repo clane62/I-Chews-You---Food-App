@@ -7,7 +7,7 @@ function renderSingleRecipe(event) {
   // store the results in an object
   var recipeObject = findRecipeById(recipeDataId)
 
-  fetch(`https://api.spoonacular.com/recipes/${recipeDataId}/information?apiKey=99a56507b069468ea74c05caf5aac57b`)
+  fetch(`https://api.spoonacular.com/recipes/${recipeDataId}/information?apiKey=9c546031b56e47279c8b37609b0a8723`)
     .then(response => response.json())
     .then(renderComments(recipeDataId))
     .then(searchResult => {
@@ -42,10 +42,10 @@ function renderRecipeDetail(recipeObject) {
         </section>
 
         <section class='comment-sctn'>
-            <h3>Comments:</h3>
+            <h3>${state.reviews.length} Comments:</h3>
+            <p>${ifNoComments()}</p>
             <div onClick='renderAddComment(${recipeObject.id})' class='comment-btn'>
-                <p>Add Comment</p>
-                
+                <p>Add Comment</p>  
             </div>
             <div class='new-comment'></div>
             
@@ -75,28 +75,36 @@ function renderComments(recipeId) {
 
 function renderReviewList() {
   return state.reviews.map(review => `
-    <div class='review' data-id='${review.review_id}'>
+    <div class='review review-${review.review_id}' data-id='${review.review_id}'>
         <div class="user-details">
             <h4>${review.username}</h4>
-            <p>${review.rating}</p>
+            <p>Rating: ${review.rating}</p>
         </div>
         <div class="review-text">
             <p>${review.review}</p>
         </div>
         <div class="comment-controls">
-            ${renderControls(review.username, review.recipe_id, review.review_id)}
+            ${renderControls(review.username, review.review_id)}
         </div>
     </div>
     `).join('')
 }
 
-function renderControls(username, recipeId, reviewId) {
+function renderControls(username, reviewId) {
   if (state.loggedInUserName === username) {
     return `
-        <a onClick='renderEditComment(${recipeId}, ${reviewId})'>Edit</a>
+        <a onClick='renderEditComment(${reviewId})'>Edit</a>
         <button onClick='deleteReview(event)'>Delete</button>
         `
   } else {
     return ""
   }
+}
+
+function ifNoComments() {
+    if (state.reviews.length === 0) {
+        return 'Start the conversation.'
+    } else {
+        return ''
+    }
 }
