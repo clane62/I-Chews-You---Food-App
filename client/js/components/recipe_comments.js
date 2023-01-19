@@ -7,7 +7,7 @@ function renderSingleRecipe(event) {
     // store the results in an object
     var recipeObject = findRecipeById(recipeDataId)
 
-    fetch(`https://api.spoonacular.com/recipes/${recipeDataId}/information?apiKey=16157713a2bb48259ac28d6dce7b2976`)
+    fetch(`https://api.spoonacular.com/recipes/${recipeDataId}/information?apiKey=9fb4e2597b3f405291312d55676dd441`)
     .then(response => response.json())
     .then(renderComments(recipeDataId))
     .then(searchResult => {
@@ -43,10 +43,11 @@ function renderRecipeDetail(recipeObject) {
 
         <section class='comment-sctn'>
             <h3>Comments:</h3>
-            <div onClick='renderAddComment()' class='comment-btn'>
+            <div onClick='renderAddComment(${recipeObject.id})' class='comment-btn'>
                 <p>Add Comment</p>
-                <div class='new-comment'></div>
+                
             </div>
+            <div class='new-comment'></div>
             
             <div class='existing-comments'>
                 ${renderReviewList()}
