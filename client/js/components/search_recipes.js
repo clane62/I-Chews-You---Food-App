@@ -1,33 +1,33 @@
 function renderSearch() {
-    document.querySelector('#page').innerHTML = `
+  document.querySelector('#page').innerHTML = `
   <form action="">
     <input type="text">
     <button class="search-recipe">Search</button>
   </form>
   <span class="search-results"></span>
   `
-    const searchResults = document.querySelector('.search-results')
-    const searchButton = document.querySelector('.search-recipe')
+  const searchResults = document.querySelector('.search-results')
+  const searchButton = document.querySelector('.search-recipe')
 
-    searchButton.addEventListener('click', event => {
-        event.preventDefault()
-        const searchInput = document.querySelector('input').value
-        console.log(searchInput)
+  searchButton.addEventListener('click', event => {
+    event.preventDefault()
+    const searchInput = document.querySelector('input').value
+    console.log(searchInput)
 
-        findRecipe(searchInput)
-    })
+    findRecipe(searchInput)
+  })
 }
 
 function findRecipe(searchInput) {
-    fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${searchInput}&apiKey=9fb4e2597b3f405291312d55676dd441`)
-        .then(response => response.json())
-        .then(searchResults => {
-            const searchOutput = searchResults.results
+  fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${searchInput}&apiKey=9fb4e2597b3f405291312d55676dd441`)
+    .then(response => response.json())
+    .then(searchResults => {
+      const searchOutput = searchResults.results
 
-            console.log(searchOutput)
-            renderSearchList(searchOutput)
+      console.log(searchOutput)
+      renderSearchList(searchOutput)
 
-        })
+    })
 }
 
 function findRecipeById(recipeId) {

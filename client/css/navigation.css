@@ -1,5 +1,9 @@
 .header-nav {
   margin: 0 auto;
+  max-width: fit-content;
+  text-align: right;
+  margin-right: 0;
+
   /* padding: 0 1rem; */
 }
 
