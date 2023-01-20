@@ -1,7 +1,7 @@
 const state = {
-  // populate with other key value pairs
-  reviews: [],
-  loggedInUserName: null
+    // populate with other key value pairs
+    reviews: [],
+    loggedInUserName: null
 }
 
 // PLACEHOLDER CODE
@@ -14,15 +14,15 @@ const state = {
 //     })
 
 fetch('/api/sessions')
-  .then(res => res.json())
-  .then(userName => state.loggedInUserName = userName)
+    .then(res => res.json())
+    .then(userName => state.loggedInUserName = userName)
 
-fetch(`https://api.spoonacular.com/recipes/random?apiKey=247841a848f5433ba355a9d1cb38b293`)
-  .then(response => response.json())
-  .then(response => {
-    var food = response.recipes[0]
+fetch(`https://api.spoonacular.com/recipes/random?apiKey=f07421ca41354737bcd3dadbe61cbb52`)
+    .then(response => response.json())
+    .then(response => {
+        var food = response.recipes[0]
 
-    document.querySelector('#page').innerHTML = `
+        document.querySelector('#page').innerHTML = `
     <section class="random-icon">
     <button class="  random-button" onClick="randomRecipe()">
     Chews Another Recipe</button>
@@ -35,4 +35,4 @@ fetch(`https://api.spoonacular.com/recipes/random?apiKey=247841a848f5433ba355a9d
     </div>
     </section>
     `
-  })
+    })

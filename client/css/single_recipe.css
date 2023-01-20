@@ -1,5 +1,36 @@
 .recipe-info {
-  background-color: white;
-  padding: 1rem;
-  max-width: 1200px;
+    background-color: white;
+    padding: 1rem;
+    max-width: 1200px;
+}
+
+.comment-btn {
+    text-decoration: none;
+    background-color: rgb(249, 187, 54);
+    border-radius: 15px;
+    padding: 10px;
+    width: fit-content;
+    margin-bottom: 20px;
+}
+
+.new-comment,
+.existing-comments {
+    max-width: 600px;
+}
+
+.review {
+    padding: 5px;
+    border-bottom: 1px solid lightgrey;
+    margin-top: 10px;
+
+}
+
+.user-details {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.username-comment {
+    color: rgb(249, 187, 54);
 }
