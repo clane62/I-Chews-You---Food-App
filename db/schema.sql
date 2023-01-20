@@ -54,3 +54,4 @@ INSERT INTO reviews(user_id, recipe_id, rating, review)
 VALUES
     (1, 1096010, 4, 'Great')
     ,(2, 1096010, 2, 'Bad');
+

@@ -1,0 +1,84 @@
+section .sign-up {
+  text-align: center;
+  margin-top: 1rem;
+
+}
+
+.sign-up {
+  background-color: white;
+  padding: 1rem;
+}
+
+.signup-center {
+  text-align: center;
+}
+
+.sign-up form {
+  text-align: center;
+}
+
+
+fieldset {
+  border: 0pt;
+  text-align: left;
+  margin-left: 20rem;
+}
+
+
+fieldset input {
+  background-color: rgb(215, 215, 215, 0.3);
+  border: 0pt;
+  margin-left: 0.5rem;
+}
+
+fieldset input:hover {
+  background-color: rgb(249, 187, 54);
+}
+
+.log-in button {
+  text-align: center;
+  width: 150px;
+  background-color: black;
+  opacity: 1;
+  padding: 0.5rem;
+  margin-top: 10px;
+  border: 0px;
+  color: white;
+}
+
+.log-in button:hover {
+  background-color: rgb(249, 187, 54);
+}
+
+.sign-up button {
+  text-align: center;
+  width: 150px;
+  background-color: black;
+  opacity: 1;
+  padding: 0.5rem;
+  margin-top: 10px;
+  border: 0px;
+  color: white;
+}
+
+.sign-up button:hover {
+  background-color: rgb(249, 187, 54);
+}
+
+section .log-in {
+  text-align: center;
+
+}
+
+.log-in {
+  background-color: white;
+  padding: 1rem;
+}
+
+.login-center {
+  text-align: center;
+}
+
+.log-in form {
+  text-align: center;
+}
