@@ -7,7 +7,7 @@ function renderSingleRecipe(event) {
   // store the results in an object
   var recipeObject = findRecipeById(recipeDataId)
 
-  fetch(`https://api.spoonacular.com/recipes/${recipeDataId}/information?apiKey=9c546031b56e47279c8b37609b0a8723`)
+  fetch(`https://api.spoonacular.com/recipes/${recipeDataId}/information?apiKey=f07421ca41354737bcd3dadbe61cbb52`)
     .then(response => response.json())
     .then(renderComments(recipeDataId))
     .then(searchResult => {
