@@ -70,7 +70,7 @@ function renderError(errorMessage) {
 
 function removeAddComment(data) {
     // const recipeId = state.reviews[0].recipe_id
-    const { ratings, recipeId, comment, reviewId } = data
+    const { ratings, recipeId, comment, reviewId} = data
 
     state.reviews.forEach(review => {
         if (review.review_id === Number(reviewId)) {
@@ -79,12 +79,8 @@ function removeAddComment(data) {
         }
     })
 
-    return fetch(`/api/comments/${recipeId}`)
-        .then(res => res.json())
-        .then(reviews => {
-            state.reviews = reviews
-        })
-        .then(document.querySelector('.existing-comments').innerHTML = renderReviewList())
+    renderComments(recipeId)
+    renderReviewList(recipeId)
 
     // renderComments(recipeId).then(console.log(state.reviews))
 
@@ -146,7 +142,6 @@ function editComment(event) {
     event.preventDefault()
     const form = event.target
     const data = Object.fromEntries(new FormData(form))
-    console.log(data)
 
     fetch('/api/comments', {
         method: 'PUT',

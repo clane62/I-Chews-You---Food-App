@@ -34,8 +34,8 @@ function findRecipe(searchInput) {
                 .then(searchResults => {
                     const searchOutput = searchResults.results
 
-                    console.log(searchOutput)
-                    renderSearchList(searchOutput)
+      console.log(searchOutput)
+      renderSearchList(searchOutput)
 
                 })
         }
