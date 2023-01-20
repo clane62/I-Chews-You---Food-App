@@ -2,7 +2,7 @@ function renderRecipeLikes(recipeId) {
     fetch(`/api/likes/${recipeId}`)
         .then(res => res.json())
         .then(numLikes => {
-            state.likes = numLikes
+            state.likes = Number(numLikes.number_of_likes)
         })
 }
 
@@ -11,8 +11,10 @@ function renderAddLike(recipeId) {
         method: 'POST'
     })
         .then(res => res.json())
-        .then(numLikes => {
-            state.likes = numLikes
-        })
+        .then(state.likes += 1)
+        .then(
+            document.querySelector('.like-counter').textContent = state.likes
+        )
+        // .then(state.likes += 1)
 
 }
