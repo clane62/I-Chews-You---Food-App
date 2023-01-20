@@ -55,3 +55,8 @@ VALUES
     (1, 1096010, 4, 'Great')
     ,(2, 1096010, 2, 'Bad');
 
+CREATE TABLE likes(
+    id SERIAL PRIMARY KEY,
+    recipe_id INT,
+    user_id INT
+);
