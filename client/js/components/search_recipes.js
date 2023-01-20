@@ -39,14 +39,16 @@ function findRecipe(searchInput) {
 
                 })
         }
+        )
+}
 
 function findRecipeById(recipeId) {
-                fetch(`https://api.spoonacular.com/recipes/${recipeId}/information?apiKey=f07421ca41354737bcd3dadbe61cbb52`)
-                    .then(response => response.json())
-                    .then(searchResult => {
-                        return searchResult
-                    })
-            }
+    fetch(`https://api.spoonacular.com/recipes/${recipeId}/information?apiKey=f07421ca41354737bcd3dadbe61cbb52`)
+        .then(response => response.json())
+        .then(searchResult => {
+            return searchResult
+        })
+}
 // function renderSearchList(searchOutput) {
 //     document.querySelector('#page').innerHTML = `
 //     <section class='search-rslt'>
