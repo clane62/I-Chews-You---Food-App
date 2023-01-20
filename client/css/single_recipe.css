@@ -32,5 +32,26 @@
 }
 
 .username-comment {
+    color: rgb(28, 49, 68);
+}
+
+.comment-controls a,
+.comment-controls button {
+    border: none;
+    border-radius: 15px;
+    width: 55px;
+    padding: 0.25rem 0.5rem;
+    background-color: rgb(245, 228, 192);
     color: rgb(249, 187, 54);
+    font-size: 0.8em;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.comment-area {
+    text-align: left;
+}
+
+.comment-area label {
+    display: block;
 }

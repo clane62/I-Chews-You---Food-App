@@ -11,24 +11,24 @@ function renderAddComment(recipeId) {
             
                 <label for="">Recipe ID</label>
                 <input type="text" name="recipeId" value="${recipeId}" readonly>
-        
-                <fieldset>
-                    <label for="ratings">Rating</label>
-                    <select name="ratings" id="ratings">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </select>
-                </fieldset>
+                <br>
+                
+                <label for="ratings">Rating</label>
+                <select name="ratings" id="ratings">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+                <br>
 
-                <fieldset>
-                    <label for="">Comment</label>
-                    <textarea name="comment" id="" cols="50" rows="10"></textarea>
-                </fieldset>
+            
+                <label for="">Comment</label>
+                <textarea name="comment" id="" cols="50" rows="10"></textarea>
+                <br>
 
-                <button>Add comment</button>
+                <button>Submit comment</button>
             </form>
         </div>
     `
@@ -70,8 +70,8 @@ function renderError(errorMessage) {
 
 function removeAddComment(data) {
     // const recipeId = state.reviews[0].recipe_id
-    const { ratings, recipeId, comment, reviewId} = data
-    
+    const { ratings, recipeId, comment, reviewId } = data
+
     state.reviews.forEach(review => {
         if (review.review_id === Number(reviewId)) {
             review.rating = ratings
@@ -82,12 +82,12 @@ function removeAddComment(data) {
     return fetch(`/api/comments/${recipeId}`)
         .then(res => res.json())
         .then(reviews => {
-        state.reviews = reviews
+            state.reviews = reviews
         })
         .then(document.querySelector('.existing-comments').innerHTML = renderReviewList())
 
     // renderComments(recipeId).then(console.log(state.reviews))
-    
+
 }
 
 // =======================================================================
@@ -96,7 +96,7 @@ function removeAddComment(data) {
 
 
 function renderEditComment(reviewId) {
-    const comment = state.reviews.filter(review => { return review.review_id === reviewId})[0]
+    const comment = state.reviews.filter(review => { return review.review_id === reviewId })[0]
 
     // replace below line with relevant position comments box should go
     document.querySelector(`.review-${reviewId}`).innerHTML = `
