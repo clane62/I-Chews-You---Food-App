@@ -68,8 +68,24 @@ function renderError(errorMessage) {
     document.querySelector('#page').innerHTML = `<h2 style='color: red;'>${errorMessage}</h2>` + document.querySelector('#page').innerHTML
 }
 
-function removeAddComment() {
-    const recipeId = state.reviews[0].recipe_id
+function removeAddComment(data) {
+    // const recipeId = state.reviews[0].recipe_id
+    const { ratings, recipeId, comment, reviewId} = data
+    console.log(`${ratings} ${recipeId} ${comment} ${reviewId}`)
+    console.log('1')
+    console.log(state.reviews)
+    state.reviews.forEach(review => {
+        console.log(review)
+        console.log(review.review_id)
+        console.log(typeof reviewId)
+        if (review.review_id === Number(reviewId)) {
+            console.log('yes')
+            review.rating = ratings
+            review.review = comment
+        }
+    })
+    console.log('2')
+    console.log(state.reviews)
 
     return fetch(`/api/comments/${recipeId}`)
         .then(res => res.json())
@@ -138,6 +154,7 @@ function editComment(event) {
     event.preventDefault()
     const form = event.target
     const data = Object.fromEntries(new FormData(form))
+    console.log(data)
 
     fetch('/api/comments', {
         method: 'PUT',
@@ -152,7 +169,7 @@ function editComment(event) {
                 renderError(res.error)
             }
             else {
-                removeAddComment()
+                removeAddComment(data)
                 // refresh page tbc
                 // renderComments(recipeDataId)
                 document.querySelector('.existing-comments').innerHTML = renderReviewList()

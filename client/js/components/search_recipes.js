@@ -25,7 +25,7 @@ function renderSearch() {
 }
 
 function findRecipe(searchInput) {
-  fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${searchInput}&apiKey=9c546031b56e47279c8b37609b0a8723`)
+  fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${searchInput}&apiKey=f07421ca41354737bcd3dadbe61cbb52`)
     .then(response => response.json())
     .then(searchResults => {
       const searchOutput = searchResults.results
@@ -37,7 +37,7 @@ function findRecipe(searchInput) {
 }
 
 function findRecipeById(recipeId) {
-  fetch(`https://api.spoonacular.com/recipes/${recipeId}/information?apiKey=9c546031b56e47279c8b37609b0a8723`)
+  fetch(`https://api.spoonacular.com/recipes/${recipeId}/information?apiKey=f07421ca41354737bcd3dadbe61cbb52`)
     .then(response => response.json())
     .then(searchResult => {
       return searchResult

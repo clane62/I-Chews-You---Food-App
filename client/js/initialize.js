@@ -17,7 +17,7 @@ fetch('/api/sessions')
   .then(res => res.json())
   .then(userName => state.loggedInUserName = userName)
 
-fetch(`https://api.spoonacular.com/recipes/random?apiKey=9c546031b56e47279c8b37609b0a8723`)
+fetch(`https://api.spoonacular.com/recipes/random?apiKey=247841a848f5433ba355a9d1cb38b293`)
   .then(response => response.json())
   .then(response => {
     var food = response.recipes[0]
