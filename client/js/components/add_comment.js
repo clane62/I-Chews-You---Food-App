@@ -71,21 +71,13 @@ function renderError(errorMessage) {
 function removeAddComment(data) {
     // const recipeId = state.reviews[0].recipe_id
     const { ratings, recipeId, comment, reviewId} = data
-    console.log(`${ratings} ${recipeId} ${comment} ${reviewId}`)
-    console.log('1')
-    console.log(state.reviews)
+    
     state.reviews.forEach(review => {
-        console.log(review)
-        console.log(review.review_id)
-        console.log(typeof reviewId)
         if (review.review_id === Number(reviewId)) {
-            console.log('yes')
             review.rating = ratings
             review.review = comment
         }
     })
-    console.log('2')
-    console.log(state.reviews)
 
     return fetch(`/api/comments/${recipeId}`)
         .then(res => res.json())
