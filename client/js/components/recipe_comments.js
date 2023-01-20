@@ -10,6 +10,7 @@ function renderSingleRecipe(event) {
     fetch(`https://api.spoonacular.com/recipes/${recipeDataId}/information?apiKey=f07421ca41354737bcd3dadbe61cbb52`)
         .then(response => response.json())
         .then(renderComments(recipeDataId))
+        .then(renderRecipeLikes(recipeDataId))
         .then(searchResult => {
             renderRecipeDetail(searchResult)
         })
@@ -52,18 +53,23 @@ function renderRecipeDetail(recipeObject) {
             <div class='existing-comments'>
                 ${renderReviewList(recipeObject.id)}
             </div>
-            <div class="likeCount">
-            <div class="likeButton likeIconbutton">
-            <p>0</p>
-            </div>
-            </div>
-            <div class="likeBtn" onClick="renderLikeRecipe(${recipeObject.id})">
-            <div class="button iconbutton">
-            <p class="material-symbols-outlined
-            favorite">favorite</p>
-            </div>
-            </div>
+  
         </section>
+
+        <section>
+          <div class="likeCount">
+            <div class="likeButton likeIconbutton">
+              <p class='like-counter'>${state.likes}</p>
+            </div>
+          </div>
+          
+          <div class="likeBtn" onClick="renderAddLike(${recipeObject.id})">
+            <div class="button iconbutton">
+              <p class="material-symbols-outlined
+                favorite">favorite</p>
+            </div>
+          </div>
+          </section>
     `
 }
 
