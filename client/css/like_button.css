@@ -1,0 +1,74 @@
+.likeBtn {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  cursor: pointer;
+
+}
+
+
+
+.likeCount {
+  position: fixed;
+  bottom: 110px;
+  right: 30px;
+  cursor: pointer;
+}
+
+.likeIconbutton {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  box-shadow: 10px 10px 5px #aaaaaa;
+}
+
+.iconbutton {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  box-shadow: 10px 10px 5px #aaaaaa;
+}
+
+
+.button {
+  width: 60px;
+  height: 60px;
+  background: black;
+
+}
+
+.likeButton {
+  width: 40px;
+  height: 40px;
+  background: black;
+}
+
+.iconbutton p {
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: white;
+
+}
+
+.likeIconbutton p {
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: white;
+
+}
+
+.button:hover {
+  background: rgb(249, 187, 54);
+
+}
+
+/* .likeButton:hover {
+  background: rgb(249, 187, 54);
+
+} */
